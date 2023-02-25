@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:idea_one/screens/StudentProfile.dart';
+import 'package:idea_one/screens/todo.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,14 +24,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('E-Learning App'),
+        title: Text('Idea One'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome to the E-Learning App!',
+              'Welcome to the I-One App!',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 20),
@@ -69,7 +71,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CourseListPage()),
+                  MaterialPageRoute(builder: (context) => TodoList()),
                 );
               },
             ),
@@ -81,11 +83,12 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => StudentProfilePage(
-                    name: 'Kumar Saksham',
-                    email: 'saskjhams@kfja',
-                    image: 'image',
-                  )),
+                  MaterialPageRoute(
+                      builder: (context) => StudentProfilePage(
+                            name: 'Kumar Saksham',
+                            email: 'saskjhams@kfja',
+                            image: 'image',
+                          )),
                 );
               },
             ),
@@ -166,40 +169,5 @@ class CoursePage extends StatelessWidget {
     );
   }
 }
-// profile page
-class StudentProfilePage extends StatelessWidget {
-  final String name;
-  final String email;
-  final String image;
 
-  StudentProfilePage(
-      {required this.name, required this.email, required this.image});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Student Profile'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: 50,
-            backgroundImage: NetworkImage(image),
-          ),
-          SizedBox(height: 20),
-          Text(
-            name,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          Text(
-            email,
-            style: TextStyle(fontSize: 18),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// todo page
